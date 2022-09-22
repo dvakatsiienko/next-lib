@@ -4,9 +4,8 @@
   "private": true,
   "author": "Dima Vakatsiienko",
   "module": "dist/index.mjs",
-  "main": "dist/index.js",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": "./dist",
     "./log": "./dist/log.mjs",
     "./sum": "./dist/sum.mjs",
     "./Button": "./dist/Button.mjs"
