@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "private": true,
   "author": "Dima Vakatsiienko",
-  "module": "dist/next-lib.esm.js",
+  "module": "dist/index.mjs",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
