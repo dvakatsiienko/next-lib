@@ -23,7 +23,7 @@ var sum = (a, b) => {
 
 // src/log.ts
 var log = () => {
-  console.log("version 1");
+  console.log("version 5");
 };
 
 exports.Button = Button;
