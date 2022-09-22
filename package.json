@@ -4,17 +4,22 @@
   "private": true,
   "author": "Dima Vakatsiienko",
   "module": "dist/index.mjs",
+  "files": [
+    "dist",
+    "src"
+  ],
   "exports": {
     ".": "./dist",
     "./log": "./dist/log.mjs",
     "./sum": "./dist/sum.mjs",
     "./Button": "./dist/Button.mjs"
   },
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "./Button": ["./dist/Button.d.ts" ]
+    }
+  },
   "engines": {
     "node": ">=16"
   },
