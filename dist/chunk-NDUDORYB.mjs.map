@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/log.ts"],"names":[],"mappings":";AAAO,IAAM,MAAM,MAAM;AACvB,UAAQ,IAAI,WAAW;AACzB","sourcesContent":["export const log = () => {\n  console.log('version 5');\n};\n"]}

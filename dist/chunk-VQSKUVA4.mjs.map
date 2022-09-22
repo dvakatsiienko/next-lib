@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/sum.ts"],"names":[],"mappings":";AAAO,IAAM,MAAM,CAAC,GAAW,MAAc;AAC3C,MAAI,OAAO;AACT,YAAQ,IAAI,IAAI;AAAA,EAClB;AAEA,SAAO,IAAI;AACb","sourcesContent":["export const sum = (a: number, b: number) => {\n  if (false) {\n    console.log(true);\n  }\n\n  return a + b;\n};\n"]}

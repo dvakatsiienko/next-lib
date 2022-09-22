@@ -4,7 +4,12 @@
   "private": true,
   "author": "Dima Vakatsiienko",
   "module": "dist/index.mjs",
-  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./log": "./dist/log.mjs",
+    "./sum": "./dist/sum.mjs",
+    "./Button": "./dist/Button.mjs"
+  },
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -19,7 +24,7 @@
     "watch": "tsdx watch",
     "build:tsdx": "tsdx build",
     "build": "run-s build:clean build:tsup",
-    "build:tsup": "tsup src/index.ts",
+    "build:tsup": "tsup",
     "build:clean": "rimraf dist",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
