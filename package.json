@@ -1,6 +1,6 @@
 {
   "name": "next-lib",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "private": true,
   "author": "Dima Vakatsiienko",
   "module": "dist/index.mjs",
@@ -17,7 +17,9 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "./Button": ["./dist/Button.d.ts" ]
+      "./Button": [
+        "./dist/Button.d.ts"
+      ]
     }
   },
   "engines": {
