@@ -24,7 +24,7 @@
     "watch": "tsdx watch",
     "build:tsdx": "tsdx build",
     "build": "run-s build:clean build:tsup",
-    "build:tsup": "tsup src/index.ts",
+    "build:tsup": "tsup",
     "build:clean": "rimraf dist",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
