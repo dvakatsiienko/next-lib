@@ -30,6 +30,7 @@
     "sb:start": "start-storybook -p 6006",
     "sb:build": "build-storybook",
     "sb:serve": "serve storybook-static",
+    "sb:bench": "sb-bench 'npx sb init'",
     "build": "run-s build:clean build:tsup",
     "build:tsup": "tsup",
     "build:clean": "rimraf dist",
@@ -52,12 +53,6 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "size-limit": [
     {
       "path": "dist/next-lib.cjs.production.min.js",
@@ -69,6 +64,7 @@
     }
   ],
   "dependencies": {
+    "styled-components": "5.3.5",
     "vite": "3.1.3"
   },
   "devDependencies": {
@@ -80,11 +76,13 @@
     "@storybook/addons": "6.5.12",
     "@storybook/builder-vite": "0.2.2",
     "@storybook/react": "6.5.12",
-    "@types/react": "18.0.20",
+    "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "@types/styled-components": "5.1.26",
     "auto-changelog": "2.4.0",
     "babel-loader": "8.2.5",
     "husky": "8.0.1",
+    "is-arrayish": "0.3.2",
     "npm-run-all": "4.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
