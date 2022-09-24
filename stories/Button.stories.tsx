@@ -1,24 +1,21 @@
 /* Core */
 import React from 'react';
-import type { ComponentMeta, ComponentStory, Story, DecoratorFn } from '@storybook/react';
+import type { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react';
 
 /* Components */
-import { Button, ButtonProps } from '../src/Button';
-
-const withLayout: DecoratorFn = (Story) => {
-    return (
-        <div style={{ display: 'flex' }}>
-            <div style={{ flex: '0 0 240px', marginRight: 16 }}>{Story()}</div>
-            <div style={{ display: 'flex', flex: '1 1 auto' }}>CONTENT</div>
-        </div>
-    );
-};
+import { Button } from '../src/Button';
 
 const meta: ComponentMeta<typeof Button> = {
     title: 'Button',
     component: Button,
-    decorators: [withLayout],
     argTypes: {
+        type: {
+            defaultValue: 'button',
+        },
+        disabled: {
+            defaultValue: false,
+            type: 'boolean',
+        },
         variant: {
             defaultValue: 'primary',
         },
@@ -35,14 +32,33 @@ const meta: ComponentMeta<typeof Button> = {
     },
 };
 
-const Template: ComponentStory<typeof Button> = (props) => {
-    return <Button {...props} />;
+const Template: ComponentStory<typeof Button> = (args) => {
+    return (
+        <>
+            <Button {...args} />
+            <Button {...args} variant='secondary' />
+        </>
+    );
+};
+// Template.storyName = 'I am the primary';
+
+export const Primary = Template.bind({});
+Primary.args = {
+    variant: 'primary',
+    children: 'PRIMARY',
 };
 
-// By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
-// https://storybook.js.org/docs/react/workflows/unit-testing
-export const Default = Template.bind({});
+export const Secondary = Template.bind({});
+Secondary.args = {
+    variant: 'secodnary',
+    children: 'SECONDARY',
+};
 
-Default.args = {};
+export const Disabled = Template.bind({});
+Disabled.args = {
+    variant: 'primary',
+    children: 'DISABLED',
+    disabled: true,
+};
 
 export default meta;

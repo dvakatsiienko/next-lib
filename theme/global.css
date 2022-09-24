@@ -1,0 +1,9 @@
+body {
+    --font-family: system-ui, sans-serif;
+
+    font-family: var(--font-family);
+}
+
+button {
+    font-family: var(--font-family);
+}
