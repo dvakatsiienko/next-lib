@@ -27,21 +27,22 @@
   },
   "scripts": {
     "start": "run-p watch storybook",
-    "storybook": "start-storybook -p 6006",
-    "watch": "tsdx watch",
-    "build:tsdx": "tsdx build",
+    "sb:start": "start-storybook -p 6006",
+    "sb:build": "build-storybook",
+    "sb:serve": "serve storybook-static",
     "build": "run-s build:clean build:tsup",
     "build:tsup": "tsup",
     "build:clean": "rimraf dist",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "_prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "build-storybook": "build-storybook",
     "release:patch": "release-it --ci",
     "release:minor": "release-it --ci minor",
-    "release:major": "release-it --ci major"
+    "release:major": "release-it --ci major",
+    "_watch": "tsdx watch",
+    "_build:tsdx": "tsdx build",
+    "_test": "tsdx test --passWithNoTests",
+    "_lint": "tsdx lint",
+    "_prepare": "tsdx build"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -67,6 +68,9 @@
       "limit": "10 KB"
     }
   ],
+  "dependencies": {
+    "vite": "3.1.3"
+  },
   "devDependencies": {
     "@babel/core": "7.19.1",
     "@size-limit/preset-small-lib": "8.1.0",
@@ -74,6 +78,7 @@
     "@storybook/addon-info": "5.3.21",
     "@storybook/addon-links": "6.5.12",
     "@storybook/addons": "6.5.12",
+    "@storybook/builder-vite": "0.2.2",
     "@storybook/react": "6.5.12",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
