@@ -1,3 +1,1 @@
-declare const log: () => void;
-
-export { log };
+export declare const log: () => void;

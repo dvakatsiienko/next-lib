@@ -1,3 +1,1 @@
-declare const sum: (a: number, b: number) => number;
-
-export { sum };
+export declare const sum: (a: number, b: number) => number;

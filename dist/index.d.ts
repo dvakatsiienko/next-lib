@@ -1,4 +1,4 @@
-export { default as Button } from './Button.js';
-export { sum } from './sum.js';
-export { log } from './log.js';
-import 'react';
+export { Button } from './Button';
+export { ButtonSimple } from './nested/ButtonSimple';
+export { sum } from './sum';
+export { log } from './log';

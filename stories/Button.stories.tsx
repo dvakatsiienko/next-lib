@@ -1,14 +1,15 @@
 /* Core */
-import React from 'react';
+import React, { useState } from 'react';
 import type { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react';
 
 /* Components */
-import { Button } from '../src/Button';
+import { Button, ButtonProps } from '../src/Button';
 
 const meta: ComponentMeta<typeof Button> = {
     title: 'Button',
     component: Button,
     argTypes: {
+        onClick: { action: 'clicked' },
         type: {
             defaultValue: 'button',
         },
@@ -33,9 +34,12 @@ const meta: ComponentMeta<typeof Button> = {
 };
 
 const Template: ComponentStory<typeof Button> = (args) => {
+    const [variant, setVariant] = useState<ButtonProps['variant']>('primary');
+    const toggle = () => setVariant(variant === 'primary' ? 'secondary' : 'primary');
+
     return (
         <>
-            <Button {...args} />
+            <Button {...args} variant={variant} onClick={toggle} />
             <Button {...args} variant='secondary' />
         </>
     );
@@ -46,6 +50,7 @@ export const Primary = Template.bind({});
 Primary.args = {
     variant: 'primary',
     children: 'PRIMARY',
+    onClick: () => console.log('test'),
 };
 
 export const Secondary = Template.bind({});

@@ -1,12 +1,14 @@
-import { FC, HTMLAttributes } from 'react';
-
+import React from 'react';
 /**
  * A custom Button component. Neat!
  */
-declare const Button: FC<ButtonProps>;
-interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export declare const Button: React.FC<ButtonProps>;
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+    variant: Variant;
     type?: 'button' | 'submit' | 'reset';
+    disabled?: boolean;
+    onClick: () => void;
 }
-declare const sum: (a: number, b: number) => number;
-
-export { Button, ButtonProps, Button as default, sum };
+declare type Variant = 'primary' | 'secondary';
+export declare const sum: (a: number, b: number) => number;
+export default Button;

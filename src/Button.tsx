@@ -7,16 +7,22 @@ import styled from 'styled-components';
  */
 export const Button: React.FC<ButtonProps> = (props) => {
     return (
-        <SButton $variant={props.variant} type={props.type} disabled={props.disabled}>
+        <SButton
+            $variant = { props.variant }
+            disabled = { props.disabled }
+            type = { props.type }
+            onClick = { props.onClick }
+        >
             {props.children}
         </SButton>
     );
 };
 Button.defaultProps = {
     children: 'Click',
-    type: 'button',
+    type:     'button',
     disabled: false,
-} as ButtonProps;
+    onClick:  () => null,
+} as Partial<ButtonProps>;
 
 /* Styles */
 const SButton = styled.button<SButtonPRops>`
@@ -38,9 +44,8 @@ const SButton = styled.button<SButtonPRops>`
         cursor: not-allowed;
     }
 
-    ${(props) =>
-        props.$variant === 'secondary' &&
-        `
+    ${(props) => props.$variant === 'secondary'
+        && `
         background-color: #4f19ff;
 
         &:hover {
@@ -54,6 +59,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     variant: Variant;
     type?: 'button' | 'submit' | 'reset';
     disabled?: boolean;
+    onClick: () => void;
 }
 type Variant = 'primary' | 'secondary';
 interface SButtonPRops {

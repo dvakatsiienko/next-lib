@@ -1,99 +1,77 @@
 {
-  "name": "next-lib",
-  "version": "0.2.0",
-  "private": true,
-  "author": "Dima Vakatsiienko",
-  "module": "dist/index.mjs",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "exports": {
-    ".": "./dist",
-    "./log": "./dist/log.mjs",
-    "./sum": "./dist/sum.mjs",
-    "./Button": "./dist/Button.mjs"
-  },
-  "types": "dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "./Button": [
-        "./dist/Button.d.ts"
-      ]
-    }
-  },
-  "engines": {
-    "node": ">=16"
-  },
-  "scripts": {
-    "start": "run-p watch storybook",
-    "sb:start": "start-storybook -p 6006",
-    "sb:build": "build-storybook",
-    "sb:serve": "serve storybook-static",
-    "sb:bench": "sb-bench 'npx sb init'",
-    "build": "run-s build:clean build:tsup",
-    "build:tsup": "tsup",
-    "build:clean": "rimraf dist",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
-    "release:patch": "release-it --ci",
-    "release:minor": "release-it --ci minor",
-    "release:major": "release-it --ci major",
-    "_watch": "tsdx watch",
-    "_build:tsdx": "tsdx build",
-    "_test": "tsdx test --passWithNoTests",
-    "_lint": "tsdx lint",
-    "_prepare": "tsdx build"
-  },
-  "peerDependencies": {
-    "react": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "size-limit": [
-    {
-      "path": "dist/next-lib.cjs.production.min.js",
-      "limit": "10 KB"
+    "name": "next-lib",
+    "version": "0.2.0",
+    "private": true,
+    "author": "Dima Vakatsiienko",
+    "type": "module",
+    "scripts": {
+        "start": "run-p watch storybook",
+        "sb:start": "start-storybook -p 6006",
+        "sb:build": "build-storybook",
+        "sb:serve": "serve storybook-static",
+        "sb:bench": "sb-bench 'npx sb init'",
+        "build": "yarn build:vite",
+        "build:tsup": "tsup",
+        "build:vite": "vite build",
+        "build:clean": "rimraf dist",
+        "prebuild": "yarn build:clean",
+        "release:patch": "release-it --ci",
+        "release:minor": "release-it --ci minor",
+        "release:major": "release-it --ci major"
     },
-    {
-      "path": "dist/next-lib.esm.js",
-      "limit": "10 KB"
+    "peerDependencies": {
+        "react": ">=16"
+    },
+    "dependencies": {
+        "styled-components": "5.3.6",
+        "vite": "3.1.4"
+    },
+    "devDependencies": {
+        "@babel/core": "7.19.1",
+        "@storybook/addon-essentials": "6.5.12",
+        "@storybook/addon-info": "5.3.21",
+        "@storybook/addon-links": "6.5.12",
+        "@storybook/addons": "6.5.12",
+        "@storybook/builder-vite": "0.2.3",
+        "@storybook/react": "6.5.12",
+        "@types/react": "18.0.21",
+        "@types/react-dom": "18.0.6",
+        "@types/styled-components": "5.1.26",
+        "@vitejs/plugin-react": "2.1.0",
+        "auto-changelog": "2.4.0",
+        "babel-loader": "8.2.5",
+        "eslint": "8.24.0",
+        "eslint-config-dva": "0.0.16",
+        "npm-run-all": "4.1.5",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "release-it": "15.4.2",
+        "rimraf": "3.0.2",
+        "tsup": "6.2.3",
+        "typescript": "4.8.4",
+        "vite-plugin-dts": "1.6.1",
+        "vite-plugin-progress": "0.0.4"
+    },
+    "module": "dist/index.mjs",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "exports": {
+        ".": "./dist",
+        "./log": "./dist/log.mjs",
+        "./sum": "./dist/sum.mjs",
+        "./Button": "./dist/Button.mjs"
+    },
+    "types": "dist/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "./Button": [
+                "./dist/Button.d.ts"
+            ]
+        }
+    },
+    "engines": {
+        "node": ">=16"
     }
-  ],
-  "dependencies": {
-    "styled-components": "5.3.5",
-    "vite": "3.1.3"
-  },
-  "devDependencies": {
-    "@babel/core": "7.19.1",
-    "@size-limit/preset-small-lib": "8.1.0",
-    "@storybook/addon-essentials": "6.5.12",
-    "@storybook/addon-info": "5.3.21",
-    "@storybook/addon-links": "6.5.12",
-    "@storybook/addons": "6.5.12",
-    "@storybook/builder-vite": "0.2.2",
-    "@storybook/react": "6.5.12",
-    "@types/react": "18.0.21",
-    "@types/react-dom": "18.0.6",
-    "@types/styled-components": "5.1.26",
-    "auto-changelog": "2.4.0",
-    "babel-loader": "8.2.5",
-    "husky": "8.0.1",
-    "is-arrayish": "0.3.2",
-    "npm-run-all": "4.1.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-is": "18.2.0",
-    "release-it": "15.4.2",
-    "rimraf": "3.0.2",
-    "sass": "1.55.0",
-    "size-limit": "8.1.0",
-    "tsdx": "0.14.1",
-    "tslib": "2.4.0",
-    "tsup": "6.2.3",
-    "typescript": "4.8.3"
-  }
 }
