@@ -1,10 +1,58 @@
 /* Core */
 import { defineConfig, UserConfigExport } from 'vite';
-import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import progress from 'vite-plugin-progress';
+import { fileURLToPath } from 'url';
+
+/* Instruments */
+import { peerDependencies, dependencies } from './package.json';
+
+const config = async (): Promise<UserConfigExport> => {
+    const entry = path.resolve(rootDir, 'src/index.ts');
+
+    return defineConfig({
+        plugins: [ react(), dts({ insertTypesEntry: true }), progress() ],
+        build:   {
+            sourcemap: true,
+            lib:       {
+                entry,
+                name:     'lib',
+                formats:  [ 'es' ],
+                fileName: (format) => `lib.${format}.js`,
+            },
+            rollupOptions: {
+                external,
+                output: [
+                    {
+                        dir:             'dist',
+                        format:          'es',
+                        esModule:        true,
+                        preserveModules: true,
+                        entryFileNames:  '[name].js',
+                        globals:         {
+                            react:               'React',
+                            'react-dom':         'ReactDOM',
+                            'styled-components': 'styled',
+                        },
+                    },
+                ],
+            },
+        },
+    });
+};
+
+/* Helpers */
+const rootDir = path.dirname(fileURLToPath(import.meta.url));
+
+const externalPackages = [
+    ...Object.keys(dependencies || {}),
+    ...Object.keys(peerDependencies || {}),
+];
+const external = externalPackages.map((packageName) => new RegExp(`^${packageName}(/.*)?`));
+
+export default config;
 
 // TODO: test Vite library mode plugin
 // https://github.com/samonxian/vite-plugin-build
@@ -35,68 +83,3 @@ import progress from 'vite-plugin-progress';
 //     }
 //   }
 // }
-
-import { peerDependencies, dependencies } from './package.json';
-
-const externalPackages = [
-    ...Object.keys(dependencies || {}),
-    ...Object.keys(peerDependencies || {}),
-];
-const external = externalPackages.map((packageName) => new RegExp(`^${packageName}(/.*)?`));
-console.log('🚀 ~ regexesOfPackages', external);
-
-const config = async (): Promise<UserConfigExport> => {
-    // let name = 'base-lib-name';
-
-    const entryPath = path.join(__dirname, 'src', 'index.ts');
-    console.log('🚀 ~ config ~ entryPath ', entryPath);
-
-    const moduleString: string = await readFile(entryPath, { encoding: 'utf-8' });
-    console.log('🚀 ~ config ~  moduleString', moduleString);
-
-    const moduleList = moduleString.split('\n');
-
-    // for (const mod of moduleList.reverse()) {
-    //     if (mod.includes('export default')) {
-    //         name = mod.replace('export default ', '').replace(' ', '');
-    //     }
-    // }
-
-    return defineConfig({
-        plugins: [ react(), dts({ insertTypesEntry: true }), progress() ],
-        build:   {
-            sourcemap: true,
-            lib:       {
-                // entry: './src',
-                // entry: path.resolve(__dirname, 'src'),
-                entry:    path.resolve(__dirname, 'src/index.ts'),
-                name:     'lib',
-                formats:  [ 'es' ],
-                fileName: (format) => `lib.${format}.js`,
-            },
-            rollupOptions: {
-                external,
-                output: [
-                    {
-                        dir:             'dist',
-                        format:          'es',
-                        esModule:        true,
-                        preserveModules: true,
-                        entryFileNames:  '[name].js',
-                        // entryFileNames: ({ name: fileName }) => {
-                        //     return `${fileName}.js`;
-                        // },
-                        // inlineDynamicImports: false,
-                        globals:         {
-                            react:               'React',
-                            'react-dom':         'ReactDOM',
-                            'styled-components': 'styled',
-                        },
-                    },
-                ],
-            },
-        },
-    });
-};
-
-export default config;

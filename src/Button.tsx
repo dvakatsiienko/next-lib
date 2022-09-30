@@ -1,5 +1,5 @@
 /* Core */
-import React from 'react';
+import React, { type PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 /**
@@ -55,7 +55,7 @@ const SButton = styled.button<SButtonPRops>`
 `;
 
 /* Types */
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonPropsBase extends React.HTMLAttributes<HTMLButtonElement> {
     variant: Variant;
     type?: 'button' | 'submit' | 'reset';
     disabled?: boolean;
@@ -65,6 +65,8 @@ type Variant = 'primary' | 'secondary';
 interface SButtonPRops {
     $variant: Variant;
 }
+
+export type ButtonProps = PropsWithChildren<ButtonPropsBase>
 
 export const sum = (a: number, b: number) => {
     return a + b;
