@@ -57,10 +57,7 @@
         "src"
     ],
     "exports": {
-        ".": "./dist",
-        "./log": "./dist/log.mjs",
-        "./sum": "./dist/sum.mjs",
-        "./Button": "./dist/Button.mjs"
+        ".": "./dist/index.js"
     },
     "types": "dist/index.d.ts",
     "typesVersions": {
