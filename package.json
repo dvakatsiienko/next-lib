@@ -26,6 +26,11 @@
         "vite": "3.1.4"
     },
     "devDependencies": {
+        "@emotion/react": "11.10.4",
+        "@emotion/styled": "11.10.4",
+        "@mui/icons-material": "5.10.6",
+        "@mui/material": "5.10.7",
+        "@mui/styles": "5.10.7",
         "@babel/core": "7.19.3",
         "@storybook/addon-essentials": "6.5.12",
         "@storybook/addon-info": "5.3.21",
@@ -57,7 +62,7 @@
         "src"
     ],
     "exports": {
-        ".": "./dist/index.js"
+        ".": "./dist/src/index.js"
     },
     "types": "dist/index.d.ts",
     "typesVersions": {

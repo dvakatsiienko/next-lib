@@ -1,6 +1,6 @@
 /* Core */
 import React, { type PropsWithChildren } from 'react';
-import styled from 'styled-components';
+import { styled } from '@mui/material';
 
 /**
  * A custom Button component. Neat!
@@ -25,7 +25,9 @@ Button.defaultProps = {
 } as Partial<ButtonProps>;
 
 /* Styles */
-const SButton = styled.button<SButtonPRops>`
+const SButton = styled('button', {
+    shouldForwardProp: (prop) => prop !== '$variant',
+})<SButtonPRops>`
     width: 120px;
     height: 32px;
     border-radius: 4px;

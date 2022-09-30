@@ -19,7 +19,6 @@ const config = async (): Promise<UserConfigExport> => {
             lib:       {
                 entry,
                 name:     'lib',
-                formats:  [ 'es' ],
                 fileName: (format) => `lib.${format}.js`,
             },
             rollupOptions: {
@@ -32,9 +31,9 @@ const config = async (): Promise<UserConfigExport> => {
                         preserveModules: true,
                         entryFileNames:  '[name].js',
                         globals:         {
-                            react:               'React',
-                            'react-dom':         'ReactDOM',
-                            'styled-components': 'styled',
+                            react:           'React',
+                            'react-dom':     'ReactDOM',
+                            '@mui/material': 'styled',
                         },
                     },
                 ],

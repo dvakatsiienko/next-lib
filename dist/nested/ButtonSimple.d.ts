@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare const ButtonSimple: (props: ButtonSimpleProps) => JSX.Element;
 interface ButtonSimpleProps extends React.HTMLAttributes<HTMLButtonElement> {
     variant: Variant;
