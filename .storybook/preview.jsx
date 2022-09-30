@@ -1,5 +1,6 @@
 /* Core */
 import React from 'react';
+import { ThemeProvider as MaterialThemeProvider } from '@mui/material';
 import { addDecorator } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 
@@ -28,9 +29,9 @@ const withTheme = (Story, context) => {
     // <GlobalStyle />
 
     return (
-        <ThemeProvider theme={storyTheme}>
+        <MaterialThemeProvider theme={storyTheme}>
             <Story />
-        </ThemeProvider>
+        </MaterialThemeProvider>
     );
 };
 
