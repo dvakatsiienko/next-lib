@@ -12,6 +12,8 @@ import { peerDependencies, dependencies } from './package.json';
 const config = async (): Promise<UserConfigExport> => {
     const entry = path.resolve(rootDir, 'src/index.ts');
 
+    console.log('🚀 ~ config ~ external', external);
+
     return defineConfig({
         plugins: [ react(), dts({ insertTypesEntry: true }), progress() ],
         build:   {
@@ -31,9 +33,9 @@ const config = async (): Promise<UserConfigExport> => {
                         preserveModules: true,
                         entryFileNames:  '[name].js',
                         globals:         {
-                            react:           'React',
-                            'react-dom':     'ReactDOM',
-                            '@mui/material': 'styled',
+                            react:       'React',
+                            'react-dom': 'ReactDOM',
+                            // '@mui/material': 'styled',
                         },
                     },
                 ],

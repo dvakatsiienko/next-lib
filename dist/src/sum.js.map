@@ -1,1 +1,0 @@
-{"version":3,"file":"sum.js","sources":["../../src/sum.ts"],"sourcesContent":["export const sum = (a: number, b: number) => {\n  if (false) {\n    console.log(true);\n  }\n\n  return a + b;\n};\n"],"names":["sum","a","b"],"mappings":"AAAa,MAAAA,IAAM,CAACC,GAAWC,MAKtBD,IAAIC;"}

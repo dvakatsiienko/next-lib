@@ -1,1 +1,0 @@
-{"version":3,"file":"log.js","sources":["../../src/log.ts"],"sourcesContent":["export const log = () => {\n  console.log('version 5');\n};\n"],"names":["log"],"mappings":"AAAO,MAAMA,IAAM,MAAM;AACvB,UAAQ,IAAI,WAAW;AACzB;"}

@@ -10,7 +10,6 @@
         "sb:serve": "serve storybook-static",
         "sb:bench": "sb-bench 'npx sb init'",
         "build": "yarn build:vite",
-        "build:tsup": "tsup",
         "build:vite": "vite build",
         "build:clean": "rimraf dist",
         "prebuild": "yarn build:clean",
@@ -22,15 +21,14 @@
         "react": ">=16"
     },
     "dependencies": {
-        "styled-components": "5.3.6",
-        "vite": "3.1.4"
-    },
-    "devDependencies": {
         "@emotion/react": "11.10.4",
         "@emotion/styled": "11.10.4",
         "@mui/icons-material": "5.10.6",
         "@mui/material": "5.10.7",
         "@mui/styles": "5.10.7",
+        "vite": "3.1.4"
+    },
+    "devDependencies": {
         "@babel/core": "7.19.3",
         "@storybook/addon-essentials": "6.5.12",
         "@storybook/addon-info": "5.3.21",
@@ -40,7 +38,6 @@
         "@storybook/react": "6.5.12",
         "@types/react": "18.0.21",
         "@types/react-dom": "18.0.6",
-        "@types/styled-components": "5.1.26",
         "@vitejs/plugin-react": "2.1.0",
         "auto-changelog": "2.4.0",
         "babel-loader": "8.2.5",
@@ -51,7 +48,6 @@
         "react-dom": "18.2.0",
         "release-it": "15.4.2",
         "rimraf": "3.0.2",
-        "tsup": "6.2.3",
         "typescript": "4.8.4",
         "vite-plugin-dts": "1.6.3",
         "vite-plugin-progress": "0.0.4"
@@ -62,7 +58,7 @@
         "src"
     ],
     "exports": {
-        ".": "./dist/src/index.js"
+        ".": "./dist/index.js"
     },
     "types": "dist/index.d.ts",
     "typesVersions": {

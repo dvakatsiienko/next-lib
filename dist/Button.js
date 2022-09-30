@@ -1,6 +1,6 @@
-import { jsx as r } from "react/jsx-runtime";
-import n from "../node_modules/@mui/material/esm/styles/styled.js";
-const t = (o) => /* @__PURE__ */ r(l, {
+import { styled as r } from "@mui/material";
+import { jsx as n } from "react/jsx-runtime";
+const t = (o) => /* @__PURE__ */ n(l, {
   $variant: o.variant,
   disabled: o.disabled,
   type: o.type,
@@ -13,7 +13,7 @@ t.defaultProps = {
   disabled: !1,
   onClick: () => null
 };
-const l = n("button", {
+const l = r("button", {
   shouldForwardProp: (o) => o !== "$variant"
 })`
     width: 120px;
